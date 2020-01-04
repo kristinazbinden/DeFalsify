@@ -15,39 +15,39 @@
     </head>
     <body ng-app="defalsifyApp">
 
-    <div class="site-wrapper">
+    <div>
 
-        <div class="site-wrapper-inner">
+        <div>
 
-            <div class="cover-container">
+            <div >
 
-                <div class="masthead clearfix">
-                    <div class="inner">
-                        <h1 class="masthead-brand">DeFalsify</h1>
+                <div >
+                    <div >
+                        <h1 >DeFalsify</h1>
                         <h3>Validate your watercooler talk.</h3>
-                        <nav class="nav nav-masthead">
+                        <nav>
 
                         <!-- NAVIGATION_PLACEHOLDER -->
-                            <a class="nav-link" ui-sref="home" ui-sref-active="active">Home</a>
-                            <a class="nav-link" ui-sref="portfolio" ui-sref-active="active">Portfolio</a>
-                            <a class="nav-link" ui-sref="about" ui-sref-active="active">About</a>
-                            <a class="nav-link" ui-sref="contact" ui-sref-active="active">Contact</a>
+                            <a  ui-sref="home" ui-sref-active="active">Home</a>
+                            <a  ui-sref="portfolio" ui-sref-active="active">Portfolio</a>
+                            <a  ui-sref="about" ui-sref-active="active">About</a>
+                            <a  ui-sref="contact" ui-sref-active="active">Contact</a>
                         </nav>
                     </div>
                 </div>
 
-                <div class="inner cover">
+                <div >
 
                     <!-- UI_VIEW_PLACEHOLDER -->
                     <ui-view></ui-view>
 
                 </div>
 
-                <div class="mastfoot">
-                    <div class="inner">
-                        <p>Cover template for
-                            <a href="https://getbootstrap.com">Bootstrap</a>, by
-                            <a href="https://twitter.com/mdo">@mdo</a>.</p>
+                <div >
+                    <div >
+                        <p>Created by Kristina Zbinden | 2020
+                            <a href="https://github.com/kristinazbinden/DeFalsify">GitHubo Repo<a> |
+                            <a href="#">Kristina's Portfolio</a>.</p>
                     </div>
                 </div>
 
