@@ -1,7 +1,8 @@
-var defalsifyApp = angular.module('defalsifyApp', ['ui.router']);
+var app = angular.module('defalsifyApp', ['ui.router']);
 
 
-defalsifyApp.config(function ($stateProvider,$urlRouterProvider) {
+app.config(function ($stateProvider,$urlRouterProvider) {
+        this.appname = "Cats";
 
     var homeState = {
         name: 'home',
