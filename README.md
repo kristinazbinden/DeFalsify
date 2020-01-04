@@ -8,7 +8,6 @@ My final project for the General Assembly Software Engineering Immersive Bootcam
  * User will be able to update and delete from this list
  * Stretch - User will be able to view a leaderboard of how often other users guessed a question correctly
 
-https://trello.com/b/GBk2DdmF/defalsify
 [ Trello Project Management Board](https://trello.com/b/GBk2DdmF/defalsify)
 
 ## Technologies Used
