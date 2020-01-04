@@ -1,12 +1,12 @@
-var portfolioApp = angular.module('portfolioApp', ['ui.router']);
+var defalsifyApp = angular.module('defalsifyApp', ['ui.router']);
 
 
-portfolioApp.config(function ($stateProvider,$urlRouterProvider) {
+defalsifyApp.config(function ($stateProvider,$urlRouterProvider) {
 
-    var mainState = {
-        name: 'main',
+    var homeState = {
+        name: 'home',
         url: '/',
-        template: '<h1>Welcome to my portfolio website!</h1><p>In this website you will find information about me and my projects</p>'
+        template: '<h1>Trending Topics:</h1><p>This is a placeholder for topics brought in from API</p>'
     }
 
     var portfolioState = {
@@ -24,10 +24,10 @@ portfolioApp.config(function ($stateProvider,$urlRouterProvider) {
     var aboutState = {
         name: 'about',
         url: '/about',
-        template: "<h1>About Me</h1><p>I'm a web developer and entrepreneur with 3+ years of experience</p>"
+        template: "<h1>About Me</h1><p>Here for the crab rangoons.</p>"
     }
 
-    $stateProvider.state(mainState);
+    $stateProvider.state(homeState);
     $stateProvider.state(portfolioState);
     $stateProvider.state(contactState);
     $stateProvider.state(aboutState);
