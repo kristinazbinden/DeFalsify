@@ -12,12 +12,12 @@ portfolioApp.config(function ($stateProvider,$urlRouterProvider) {
     var portfolioState = {
         name: 'portfolio',
         url: '/portfolio',
-        templateUrl: 'app/views/portfolio.html'
+        templateUrl: '/views/portfolio.html'
     }
     var contactState = {
         name: 'contact',
         url: '/contact',
-        templateUrl: 'app/views/contact.html'
+        templateUrl: '/views/contact.html'
     }
 
 
