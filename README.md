@@ -16,7 +16,10 @@ App will employ AngularJS, PHP, PostgreSQL, CSS
 ## To Meet MVP
 * The project files will be hosted on Github
 * It will be deployed online using Heroku
-* ~~I will be teaching myself Python and either Flask or Django, depending on the needs of the app~~ 
+* ~~I will be teaching myself Python and either Flask or Django, depending on the needs of the app~~
 * I will be integrating a third party API
 
 ![alt text](./wireframe.png)
+
+
+Lots of thanks to [this tutorial](https://www.techiediaries.com/building-websites-php-angularjs/) for showing me how to integrate AngularJS with a PHP backend.
