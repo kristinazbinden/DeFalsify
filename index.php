@@ -21,6 +21,10 @@
                         <nav class="nav nav-masthead">
 
                         <!-- NAVIGATION_PLACEHOLDER -->
+                            <a class="nav-link" ui-sref="main" ui-sref-active="active">Main</a>
+                            <a class="nav-link" ui-sref="portfolio" ui-sref-active="active">Portfolio</a>
+                            <a class="nav-link" ui-sref="about" ui-sref-active="active">About</a>
+                            <a class="nav-link" ui-sref="contact" ui-sref-active="active">Contact</a>
                         </nav>
                     </div>
                 </div>
@@ -28,7 +32,7 @@
                 <div class="inner cover">
 
                     <!-- UI_VIEW_PLACEHOLDER -->
-
+                    <ui-view></ui-view>
 
                 </div>
 
@@ -63,6 +67,6 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
     <script src="https://unpkg.com/@uirouter/angularjs/release/angular-ui-router.js"></script>
-    <script src="app/app.js"></script>    
+    <script src="app/app.js"></script>
     </body>
 </html>
