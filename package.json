@@ -45,6 +45,7 @@
   },
   "scripts": {
     "test": "set -e; for t in test/*.js; do node $t; done"
+    "start": "app.js"
   },
   "version": "0.0.0"
 }
