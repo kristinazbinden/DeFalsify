@@ -8,7 +8,10 @@ const session = require('express-session');
 const morgan = require('morgan');
 const googleTrends = require('google-trends-api');
 const db = mongoose.connection;
-require('dotenv').config()
+const dotenv = require("dotenv");
+
+
+dotenv.config();
 
 /**
  * App Variables
@@ -34,7 +37,8 @@ mongoose.connect(DATABASE_URL, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useFindAndModify: false,
-    useCreateIndex: true
+    useCreateIndex: true,
+    useMongoClient: true
 });
 
 mongoose.connection.once('open', function(){
