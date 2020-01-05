@@ -1,0 +1,28 @@
+{
+  "name": "DeFalsifyApp",
+  "version": "1.0.0",
+  "description": "My final project for the General Assembly Software Engineering Immersive Bootcamp Course",
+  "main": "server.js",
+  "scripts": {
+    "dev": "nodemon ./server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kristinazbinden/DeFalsify.git"
+  },
+  "keywords": [],
+  "author": "Kristina Zbinden",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kristinazbinden/DeFalsify/issues"
+  },
+  "homepage": "https://github.com/kristinazbinden/DeFalsify#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.2"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-session": "^1.17.0",
+    "pug": "^2.0.4"
+  }
+}
