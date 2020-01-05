@@ -12,9 +12,49 @@
         <title></title>
     </head>
     <body ng-controller="MainController as ctrl">
-        <div class="">
-            <h1> Welcome to {{ctrl.name}} </h1>
+        <div class="jumbo">
+            <h1> DeFalsify </h1>
+            <h4> Validate Your Water Cooler Talk </h4>
         </div>
 
+        <div class="nav">
+
+        </div>
+
+        <div class="topics">
+            <h4>Trending today:</h4>
+                <ul>
+                    <li></li>
+                </ul>
+        </div>
+
+<!-- This handles users signing up -->
+        <section ng-if="ctrl.loggedInUser === false">
+            <h2>Sign Up</h2>
+            <form ng-submit="ctrl.signup()">
+                Username: <input type="text" ng-model="ctrl.signupUsername"/><br/>
+                Password: <input type="password" ng-model="ctrl.signupPassword"/><br/>
+                <input type="submit" value="Sign Up">
+            </form>
+
+        </section>
+
+<!-- This handles users logging in -->
+        <section ng-if="ctrl.loggedInUser !== false">
+            <h2>Log In</h2>
+            <form ng-submit = "ctrl.login()">
+                Username: <input type="text" ng-model="ctrl.loginUsername"/><br/>
+                Password: <input type="password" ng-model="ctrl.loginPassword"/><br/>
+                <input type="submit" value="Log In">
+            </form>
+        </section>
     </body>
 </html>
+
+<!-- Welcome Message To Logged In User-->
+<div>
+    <section ng-if = "ctrl.loggedInUser !== false">
+        <h2>Welcome {{ctrl.loggedInUser.username.charAt(0).toUpperCase() + (ctrl.loggedInUser.username).slice(1)}}!</h2>
+    </section>
+
+</div>

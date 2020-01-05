@@ -1,11 +1,15 @@
-// index.js
 
 /**
  * Required External Modules
  */
 const express = require("express");
-const path = require("path");
+const mongoose = require('mongoose');
 const session = require('express-session');
+const morgan = require('morgan');
+const googleTrends = require('google-trends-api');
+const db = mongoose.connection;
+require('dotenv').config()
+
 /**
  * App Variables
  */
@@ -21,6 +25,23 @@ app.use(session({
     resave:false,
     saveUninitialized:false
 }))
+/**
+ *  Database
+ */
+const DATABASE_URL = process.env.DATABASE_URL
+
+mongoose.connect(DATABASE_URL, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useFindAndModify: false,
+    useCreateIndex: true
+});
+
+db.on('error', (error) => console.log(error.message + ' problem with Mongod?'));
+
+db.on('connected', () => console.log('mongo connected: '));
+
+db.on('disconnected', () => console.log('mongo disconnected'));
 
 /**
  * Routes Definitions
@@ -28,12 +49,20 @@ app.use(session({
 const topicsController = require('./controllers/topics.js')
 app.use('/topics', topicsController)
 
+app.use(morgan('tiny'));
+
+const usersController = require('./controllers/users.js')
+app.use('/users', usersController)
+
+const sessionController = require('./controllers/session.js')
+app.use('/session', sessionController)
+
 /**
  * Routes Definitions
  */
-app.get("/", (req, res) => {
-    res.status(200).send("I love shmaghetti")
-})
+// app.get("/", (req, res) => {
+//     res.status(200).send("I love shmaghetti")
+// })
 /**
  * Server Activation
  */
