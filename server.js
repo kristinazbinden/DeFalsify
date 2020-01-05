@@ -37,6 +37,13 @@ mongoose.connect(DATABASE_URL, {
     useCreateIndex: true
 });
 
+mongoose.connection.once('open', function(){
+         console.log('Conection has been made!');
+             }).on('error', function(error){
+          console.log('Error is: ', error);
+});
+
+
 db.on('error', (error) => console.log(error.message + ' problem with Mongod?'));
 
 db.on('connected', () => console.log('mongo connected: '));
