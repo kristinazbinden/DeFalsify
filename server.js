@@ -21,6 +21,13 @@ app.use(session({
     resave:false,
     saveUninitialized:false
 }))
+
+/**
+ * Routes Definitions
+ */
+const topicsController = require('./controllers/topics.js')
+app.use('/topics', topicsController)
+
 /**
  * Routes Definitions
  */
