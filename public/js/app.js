@@ -1,9 +1,5 @@
 const app = angular.module("DeFalsifyApp", []);
 
-
-// const googleTrends = require('google-trends-api');
-// googleTrends.dailyTrends({ geo: 'US' }, cbFunc)
-
 app.controller('MainController', ["$http", function($http){
 
     const controller = this;
@@ -12,10 +8,17 @@ app.controller('MainController', ["$http", function($http){
     this.includeLoggedInPath = '';
     this.includePath = '';
 
-
-    this.baseURL = ''
+    this.signupVisible = false;
+    this.loginVisible = false;
 
 // This handles login and signup of users
+
+    this.showSignUp = function(){
+        this.loginVisible = false;
+        console.log("show sign up");
+        this.signupVisible = true;
+    }
+
     this.signup = function(){
         console.log('signing up user');
         $http({
@@ -30,6 +33,12 @@ app.controller('MainController', ["$http", function($http){
         })
     }
 
+    this.showLogIn = function(){
+        this.signupVisible = false;
+        console.log("show log in");
+        this.loginVisible = true;
+    }
+
     this.login = function(){
         $http({
             url:'/session',
@@ -41,13 +50,31 @@ app.controller('MainController', ["$http", function($http){
         }).then(function(response){
             if(response.data.username){
                 controller.loggedInUser = response.data;
+                this.loginVisible = false;
             } else {
                 controller.loginUsername = null;
                 controller.loginPassword = null;
             }
         })
     }
+// On button click, log out user and end session
+    this.logout = function(){
+        console.log('logging out');
+        $http({
+            url:'/session',
+            method:'DELETE'
+        }).then(function(){
+            controller.loggedInUser = false;
+            controller.loginVisible = false;
+            controller.signupVisible = false;
+        })
+    }
 
+// Hide login and/or signup forms
+    this.cancelThis = function(){
+        this.signupVisible = false;
+        this.loginVisible = false;
+    }
 
 
     this.factCheck = function(){

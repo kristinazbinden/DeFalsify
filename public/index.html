@@ -16,11 +16,53 @@
             <h1> DeFalsify </h1>
             <h4> Validate Your Water Cooler Talk </h4>
         </div>
-
+<!-- This nav bar appears if user is signed in to navigate saved info and special access features -->
         <div class="nav">
+            <nav>
+                <h5 ng-click="ctrl.showSignUp()" ng-if="ctrl.loggedInUser === false">Create Account</h5>
+                <h5 ng-click="ctrl.showLogIn()" ng-if="ctrl.loggedInUser == false">Log In</h5>
+                <h5 ng-if="ctrl.loggedInUser !== false" ng-click="">My Saved Facts</h5>
+                <h5 ng-if="ctrl.loggedInUser !== false" ng-click="">Test My Knowledge</h5>
+                <h5 ng-if="ctrl.loggedInUser !== false" ng-click="">Discussion Board</h5>
+                <h5 ng-if="ctrl.loggedInUser !== false" ng-click="ctrl.logout()">Log Out</h5>
+            </nav>
+        </div>
+
+
+        <!-- This handles users signing up -->
+                <section ng-if="ctrl.loggedInUser === false" ng-show="ctrl.signupVisible">
+                    <h2>Sign Up</h2>
+                    <form ng-submit="ctrl.signup()">
+                        Username: <input type="text" ng-model="ctrl.signupUsername"/><br/>
+                        Password: <input type="password" ng-model="ctrl.signupPassword"/><br/>
+                        <input type="submit" value="Sign Up">
+                        <input type="button" ng-click="ctrl.cancelThis()" value="Cancel">
+                    </form>
+                </section>
+
+        <!-- This handles users logging in -->
+                <section ng-if="ctrl.loggedInUser === false" ng-show="ctrl.loginVisible">
+                    <h2>Log In</h2>
+                    <form ng-submit = "ctrl.login()">
+                        Username: <input type="text" ng-model="ctrl.loginUsername"/><br/>
+                        Password: <input type="password" ng-model="ctrl.loginPassword"/><br/>
+                        <input type="submit" ng-click="ctrl.cancelThis()">
+                        <input type="submit" value="Log In">
+                        <input type="button" ng-click="ctrl.cancelThis()" value="Cancel">
+                    </form>
+                </section>
+            </body>
+        </html>
+
+        <!-- Welcome Message To Logged In User-->
+        <div>
+            <section ng-if = "ctrl.loggedInUser !== false">
+                <h2>Welcome {{ctrl.loggedInUser.username.charAt(0).toUpperCase() + (ctrl.loggedInUser.username).slice(1)}}!</h2>
+            </section>
 
         </div>
 
+<!-- This is our fact check search that displays whether user is logged in or not -->
         <div class="topics">
             <h4>Search Topics:</h4>
                 <form ng-submit="ctrl.factCheck()">
@@ -39,34 +81,3 @@
                     </ul>
                 </div>
         </div>
-
-<!-- This handles users signing up -->
-        <section ng-if="ctrl.loggedInUser === false">
-            <h2>Sign Up</h2>
-            <form ng-submit="ctrl.signup()">
-                Username: <input type="text" ng-model="ctrl.signupUsername"/><br/>
-                Password: <input type="password" ng-model="ctrl.signupPassword"/><br/>
-                <input type="submit" value="Sign Up">
-            </form>
-
-        </section>
-
-<!-- This handles users logging in -->
-        <section ng-if="ctrl.loggedInUser !== false">
-            <h2>Log In</h2>
-            <form ng-submit = "ctrl.login()">
-                Username: <input type="text" ng-model="ctrl.loginUsername"/><br/>
-                Password: <input type="password" ng-model="ctrl.loginPassword"/><br/>
-                <input type="submit" value="Log In">
-            </form>
-        </section>
-    </body>
-</html>
-
-<!-- Welcome Message To Logged In User-->
-<div>
-    <section ng-if = "ctrl.loggedInUser !== false">
-        <h2>Welcome {{ctrl.loggedInUser.username.charAt(0).toUpperCase() + (ctrl.loggedInUser.username).slice(1)}}!</h2>
-    </section>
-
-</div>
