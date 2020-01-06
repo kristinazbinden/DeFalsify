@@ -22,10 +22,18 @@
         </div>
 
         <div class="topics">
-            <h4>Trending today:</h4>
-                <ul>
-                    <li></li>
-                </ul>
+            <h4>Search Topics:</h4>
+                <form ng-submit="ctrl.factCheck()">
+                    <input type="text" ng-model="ctrl.factToCheck">
+                    <input type="submit" value="Fact Check It">
+                </form>
+
+                <div class="">
+                    <h3>Results:</h3>
+                    <ul ng-repeat="claim in ctrl.checkedFacts">
+                        <li>{{claim.text}}</li>
+                    </ul>
+                </div>
         </div>
 
 <!-- This handles users signing up -->

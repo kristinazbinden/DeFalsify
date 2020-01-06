@@ -1,9 +1,11 @@
 const app = angular.module("DeFalsifyApp", []);
 
+
 // const googleTrends = require('google-trends-api');
 // googleTrends.dailyTrends({ geo: 'US' }, cbFunc)
 
 app.controller('MainController', ["$http", function($http){
+
     const controller = this;
 
     this.loggedInUser = false;
@@ -48,13 +50,14 @@ app.controller('MainController', ["$http", function($http){
 
 
 
-    this.getTopics = function(){
-        console.log("getting todays topic");
+    this.factCheck = function(){
+        console.log(this.factToCheck);
         $http({
             method: 'GET',
-            url: this.searchURL
+            url: "/topics/facts?search="+this.factToCheck
         }).then( response => {
-            console.log(response.data);
+            console.log(response.data.claims);
+            controller.checkedFacts = response.data.claims
         })
     }
 
