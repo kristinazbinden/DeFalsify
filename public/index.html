@@ -31,7 +31,11 @@
                 <div class="">
                     <h3>Results:</h3>
                     <ul ng-repeat="claim in ctrl.checkedFacts">
-                        <li>{{claim.text}}</li>
+                            <li>{{claim.text}}<br>
+                                Claim Made By: {{claim.claimant}}<br>
+                                Source: <a ng-href="{{claim.claimReview[0].url}}">{{claim.claimReview[0].title}}</a><br>
+                                <strong>Verdict: {{claim.claimReview[0].textualRating}}</strong>
+                            </li>
                     </ul>
                 </div>
         </div>
