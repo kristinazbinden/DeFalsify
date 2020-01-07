@@ -34,7 +34,7 @@
     <div class="login">
         <!-- This handles users signing up -->
                 <section ng-if="ctrl.loggedInUser === false" ng-show="ctrl.signupVisible">
-                    <h2>Sign Up</h2>
+                    <h3>Sign Up</h3>
                     <form ng-submit="ctrl.signup()">
                         Username: <input type="text" ng-model="ctrl.signupUsername"/><br/>
                         Password: <input type="password" ng-model="ctrl.signupPassword"/><br/>
@@ -45,7 +45,7 @@
 
         <!-- This handles users logging in -->
                 <section ng-if="ctrl.loggedInUser === false" ng-show="ctrl.loginVisible">
-                    <h2>Log In</h2>
+                    <h3>Log In</h3>
                     <form ng-submit = "ctrl.login()">
                         Username: <input type="text" ng-model="ctrl.loginUsername"/><br/>
                         Password: <input type="password" ng-model="ctrl.loginPassword"/><br/>
@@ -59,7 +59,7 @@
         <!-- Welcome Message To Logged In User-->
         <div class="welcome">
             <section ng-if = "ctrl.loggedInUser !== false">
-                <h2>Welcome {{ctrl.loggedInUser.username.charAt(0).toUpperCase() + (ctrl.loggedInUser.username).slice(1)}}!</h2>
+                <h3>Welcome {{ctrl.loggedInUser.username.charAt(0).toUpperCase() + (ctrl.loggedInUser.username).slice(1)}}!</h3>
             </section>
 
         </div>
@@ -68,10 +68,12 @@
 
         <div class="second">
             <div class="search-form">
-                <h3>Search A Topic:</h3>
+                <h2>Search A Topic:</h2>
                     <form ng-submit="ctrl.factCheck()">
-                        <input type="text" ng-model="ctrl.factToCheck">
-                        <input type="submit" value="Check It">
+                        <div class="form-group">
+                            <input type="text" ng-model="ctrl.factToCheck">
+                            <input type="submit" value="Check It">
+                        </div>
                     </form>
             </div>
         </div>

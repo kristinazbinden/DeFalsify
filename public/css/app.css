@@ -7,6 +7,7 @@
 
 body {
     color: var(--blue);
+    font-family: var(--reg-text);
 }
 
 .jumbo {
@@ -27,7 +28,7 @@ h1, h2, h3, h4, h5 {
 }
 
 h2 {
-    font-size: 300%;
+    font-size: 250%;
 }
 
 .nav {
@@ -54,6 +55,11 @@ li {
 
 li h3:hover {
     color: var(--green)
+}
+
+input, button {
+    border-radius: 5px;
+    margin: 5px;
 }
 
 .li-img {
@@ -89,11 +95,13 @@ li h3:hover {
 .my-saved {
     float: right;
     max-width: 40%;
+    justify-content: flex-start;
 }
 
 footer {
     display: flex;
     justify-content: center;
     padding-top: 20px;
+    padding-bottom: 10px;
     border-top: 2px solid var(--green);
 }
