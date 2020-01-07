@@ -1,3 +1,8 @@
-<div class="">
-
+<h2>Saved Searches</h2>
+<div ng-repeat = "topic in ctrl.topics" ng-if="topic.userId === ctrl.loggedInUser._id" class="">
+    {{topic.text}}
+    {{topic.claimant}}
+    {{topic.source}}
+    {{topic.title}}
+    {{topic.rating}}
 </div>

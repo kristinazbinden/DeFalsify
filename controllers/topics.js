@@ -13,25 +13,26 @@ router.get("/facts", (req, res) => {
 })
 
 router.get("/", (re, res) => {
-    Topics.find({}, (error, foundTopics) => {
+    Topic.find({}, (error, foundTopics) => {
         res.json(foundTopics)
     })
 });
 
 router.post("/", (req, res) => {
-    Topics.create(req.body, (error, createTopic) => {
+    console.log(req.body);
+    Topic.create(req.body, (error, createdTopic) => {
         res.json(createdTopic)
     })
 });
 
 router.delete("/:id", (req, res) => {
-    Topics.findByIdAndDelete(req.params.id, (error, deletedTopic) => {
+    Topic.findByIdAndDelete(req.params.id, (error, deletedTopic) => {
         res.json(deletedTopic)
     })
 });
 
 router.put("/:id", (req, res) => {
-    Topics.findByIdAndUpdate(req.params.id, req.body, {new:true}, (error, updateTopic) => {
+    Topic.findByIdAndUpdate(req.params.id, req.body, {new:true}, (error, updateTopic) => {
         res.json(updatedTopic)
     })
 });

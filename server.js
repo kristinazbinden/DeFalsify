@@ -72,11 +72,11 @@ app.use('/session', sessionController)
 /**
  * Routes Definitions
  */
- app.get('/topics',async(req,res)=>{
-     res.header("Access-Control-Allow-Origin", "*");
-     const user=await factcheck();
-     res.send(user);
- })
+ // app.get('/topics',async(req,res)=>{
+ //     res.header("Access-Control-Allow-Origin", "*");
+ //     const user=await factcheck();
+ //     res.send(user);
+ // })
 
 
  /**

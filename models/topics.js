@@ -1,7 +1,14 @@
 const mongoose = require('mongoose');
+
+
+
 const topicSchema = new mongoose.Schema({
-    title: { type: String, required:true },
-    confirmed: { type: String, required:true }
+    text: { type: String, required:true },
+    claimant: String,
+    source: String,
+    title: String,
+    rating: String,
+    userId: String
 })
 
 const Topic = mongoose.model('Topic', topicSchema);

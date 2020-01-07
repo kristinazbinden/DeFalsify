@@ -21,9 +21,8 @@
             <nav>
                 <h5 ng-click="ctrl.showSignUp()" ng-if="ctrl.loggedInUser === false">Create Account</h5>
                 <h5 ng-click="ctrl.showLogIn()" ng-if="ctrl.loggedInUser == false">Log In</h5>
-                <h5 ng-if="ctrl.loggedInUser !== false" ng-click="">My Saved Facts</h5>
+                <h5 ng-click="ctrl.showSaved()" ng-if="ctrl.loggedInUser !== false" >My Saved Facts</h5>
                 <h5 ng-if="ctrl.loggedInUser !== false" ng-click="">Test My Knowledge</h5>
-                <h5 ng-if="ctrl.loggedInUser !== false" ng-click="">Discussion Board</h5>
                 <h5 ng-if="ctrl.loggedInUser !== false" ng-click="ctrl.logout()">Log Out</h5>
             </nav>
         </div>
@@ -71,12 +70,28 @@
 
                 <div class="">
                     <h3>Results:</h3>
-                    <ul ng-repeat="claim in ctrl.checkedFacts">
+                    <div ng-repeat="claim in ctrl.checkedFacts">
+                        <ul>
                             <li>{{claim.text}}<br>
                                 Claim Made By: {{claim.claimant}}<br>
                                 Source: <a ng-href="{{claim.claimReview[0].url}}">{{claim.claimReview[0].title}}</a><br>
                                 <strong>Verdict: {{claim.claimReview[0].textualRating}}</strong>
+                                <form ng-if = "ctrl.loggedInUser !== false" ng-submit="ctrl.saveSearch(claim)">
+                                    <!-- <input type="text" ng-model="ctrl.text" ng-value="claim.text"/>
+                                    <input type="text" ng-model="ctrl.claimant" ng-value="claim.claimant"/>
+                                    <input type="text" ng-model="ctrl.source" ng-value="claim.claimReview[0].url"/>
+                                    <input type="text" ng-model="ctrl.title" ng-value="claim.claimReview[0].title"/>
+                                    <input type="text" ng-model="ctrl.rating" ng-value="claim.claimReview[0].textualRating"/> -->
+                                    <input type="submit" value="Save To My Facts">
+                                </form>
+                               <!-- <button ng-if = "ctrl.loggedInUser !== false" type="button" name="button">Save To My Facts</button> -->
                             </li>
-                    </ul>
+                        </ul>
+
+                    </div>
                 </div>
+        </div>
+
+        <div ng-if="ctrl.savedVisible === true">
+             <div ng-include="ctrl.savedPath" class=""></div>
         </div>

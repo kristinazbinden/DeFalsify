@@ -5,11 +5,11 @@ app.controller('MainController', ["$http", function($http){
     const controller = this;
 
     this.loggedInUser = false;
-    this.includeLoggedInPath = '';
-    this.includePath = '';
 
     this.signupVisible = false;
     this.loginVisible = false;
+    this.savedVisible = false;
+    this.savedPath = './savedSearches.html';
 
 // This handles login and signup of users
 
@@ -67,6 +67,7 @@ app.controller('MainController', ["$http", function($http){
             controller.loggedInUser = false;
             controller.loginVisible = false;
             controller.signupVisible = false;
+            controller.savedVisible = false;
         })
     }
 
@@ -78,7 +79,6 @@ app.controller('MainController', ["$http", function($http){
 
 
     this.factCheck = function(){
-        console.log(this.factToCheck);
         $http({
             method: 'GET',
             url: "/topics/facts?search="+this.factToCheck
@@ -87,6 +87,47 @@ app.controller('MainController', ["$http", function($http){
             controller.checkedFacts = response.data.claims
         })
     }
+
+// Allow users to save a search result to their profile
+    this.saveSearch = function(claim){
+        console.log(claim);
+        $http({
+            method:'POST',
+            url:'/topics',
+            data: {
+                text: claim.text,
+                claimant: claim.claimant,
+                source: claim.claimReview[0].url,
+                title: claim.claimReview[0].title,
+                rating: claim.claimReview[0].textualRating,
+                userId: this.loggedInUser._id
+            }
+        }).then(function(response){
+
+        }, function(error){
+            console.log(error);
+        })
+
+
+    }
+// This section handles the show saved searches page
+    this.showSaved = function(){
+        console.log('click');
+        this.savedVisible = true;
+    }
+
+    this.getTopics = function(){
+        $http({
+            method: 'GET',
+            url: '/topics'
+        }).then(function(response){
+            controller.topics = response.data;
+        })
+    }
+
+
+// Call getTopics() on load
+    this.getTopics();
 
 //     googleTrends.interestOverTime({keyword: 'Women\'s march'})
 //         .then(function(results){
