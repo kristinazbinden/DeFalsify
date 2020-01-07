@@ -103,7 +103,7 @@ app.controller('MainController', ["$http", function($http){
                 userId: this.loggedInUser._id
             }
         }).then(function(response){
-
+            controller.getTopics();
         }, function(error){
             console.log(error);
         })

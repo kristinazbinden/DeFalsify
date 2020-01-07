@@ -52,7 +52,32 @@ li {
     margin-right: 40px;
 }
 
+li h3:hover {
+    color: var(--green)
+}
+
+.li-img {
+    max-height: 10vh;
+}
+
 .login, .welcome {
     display: flex;
     justify-content: center;
+}
+
+
+.main {
+    display:flex;
+    justify-content: center;
+    padding: 20px
+}
+
+.search-form {
+    float: left;
+}
+
+.my-saved {
+    float: right;
+
+
 }

@@ -15,10 +15,10 @@
     <body ng-controller="MainController as ctrl">
         <div class="jumbo">
             <img id="jumbo-image" src="./assets/logo.png" alt="horizontal logo">
-            <h2>Validate your water cooler talk.</h2>
+            <h2>Check yourself. Correct yourself.</h2>
         </div>
 
-    <div class="main">
+    <div class="top">
         <!-- This nav bar appears if user is signed in to navigate saved info and special access features -->
         <div class="nav">
             <ul>
@@ -65,7 +65,8 @@
         </div>
 
 <!-- This is our fact check search that displays whether user is logged in or not -->
-        <div class="topics">
+    <div class="main">
+        <div class="search-form">
             <h4>Search Topics:</h4>
                 <form ng-submit="ctrl.factCheck()">
                     <input type="text" ng-model="ctrl.factToCheck">
@@ -76,7 +77,9 @@
                     <h3>Results:</h3>
                     <div ng-repeat="claim in ctrl.checkedFacts">
                         <ul>
-                            <li>{{claim.text}}<br>
+                            <img class="li-img" src="./assets/li-icon.png" alt="verdict paper icon">
+                            <li>
+                                {{claim.text}}<br>
                                 Claim Made By: {{claim.claimant}}<br>
                                 Source: <a ng-href="{{claim.claimReview[0].url}}">{{claim.claimReview[0].title}}</a><br>
                                 <strong>Verdict: {{claim.claimReview[0].textualRating}}</strong>
@@ -96,7 +99,8 @@
                 </div>
         </div>
 
-        <div ng-if="ctrl.savedVisible === true">
+        <div class="my-saved" ng-if="ctrl.savedVisible === true">
              <div ng-include="ctrl.savedPath" class=""></div>
         </div>
+    </div>
 </body>
