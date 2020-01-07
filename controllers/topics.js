@@ -32,7 +32,7 @@ router.delete("/:id", (req, res) => {
 });
 
 router.put("/:id", (req, res) => {
-    Topic.findByIdAndUpdate(req.params.id, req.body, {new:true}, (error, updateTopic) => {
+    Topic.findByIdAndUpdate(req.params.id, req.body, {new:true}, (error, updatedTopic) => {
         res.json(updatedTopic)
     })
 });

@@ -9,25 +9,29 @@
         <script src="/js/app.js" charset="utf-8"></script>        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
         <link rel="stylesheet" href="/css/app.css">
+        <link href="https://fonts.googleapis.com/css?family=Audiowide|Montserrat&display=swap" rel="stylesheet">
         <title></title>
     </head>
     <body ng-controller="MainController as ctrl">
         <div class="jumbo">
-            <h1> DeFalsify </h1>
-            <h4> Validate Your Water Cooler Talk </h4>
+            <img id="jumbo-image" src="./assets/logo.png" alt="horizontal logo">
+            <h2>Validate your water cooler talk.</h2>
         </div>
-<!-- This nav bar appears if user is signed in to navigate saved info and special access features -->
+
+    <div class="main">
+        <!-- This nav bar appears if user is signed in to navigate saved info and special access features -->
         <div class="nav">
-            <nav>
-                <h5 ng-click="ctrl.showSignUp()" ng-if="ctrl.loggedInUser === false">Create Account</h5>
-                <h5 ng-click="ctrl.showLogIn()" ng-if="ctrl.loggedInUser == false">Log In</h5>
-                <h5 ng-click="ctrl.showSaved()" ng-if="ctrl.loggedInUser !== false" >My Saved Facts</h5>
-                <h5 ng-if="ctrl.loggedInUser !== false" ng-click="">Test My Knowledge</h5>
-                <h5 ng-if="ctrl.loggedInUser !== false" ng-click="ctrl.logout()">Log Out</h5>
-            </nav>
+            <ul>
+                <li ng-if="ctrl.loggedInUser == false"><h3 ng-click="ctrl.showSignUp()" ng-if="ctrl.loggedInUser === false">Create Account</h3></li>
+                <li ng-if="ctrl.loggedInUser == false"><h3 ng-click="ctrl.showLogIn()" ng-if="ctrl.loggedInUser == false">Log In</h3></li>
+                <li ng-if="ctrl.loggedInUser !== false"><h3 ng-click="ctrl.showSaved()" ng-if="ctrl.loggedInUser !== false" >My Saved Facts</h3></li>
+                <li ng-if="ctrl.loggedInUser !== false"><h3 ng-if="ctrl.loggedInUser !== false" ng-click="">Test My Knowledge</h3></li>
+                <li ng-if="ctrl.loggedInUser !== false"><h3 ng-if="ctrl.loggedInUser !== false" ng-click="ctrl.logout()">Log Out</h3>
+            </ul>
         </div>
+    </div>
 
-
+    <div class="login">
         <!-- This handles users signing up -->
                 <section ng-if="ctrl.loggedInUser === false" ng-show="ctrl.signupVisible">
                     <h2>Sign Up</h2>
@@ -50,10 +54,10 @@
                     </form>
                 </section>
             </body>
-        </html>
+    </div>
 
         <!-- Welcome Message To Logged In User-->
-        <div>
+        <div class="welcome">
             <section ng-if = "ctrl.loggedInUser !== false">
                 <h2>Welcome {{ctrl.loggedInUser.username.charAt(0).toUpperCase() + (ctrl.loggedInUser.username).slice(1)}}!</h2>
             </section>
@@ -95,3 +99,4 @@
         <div ng-if="ctrl.savedVisible === true">
              <div ng-include="ctrl.savedPath" class=""></div>
         </div>
+</body>
