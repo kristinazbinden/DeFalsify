@@ -34,9 +34,9 @@ h2 {
     display: flex;
     justify-content: center;
     align-content: space-between;
-    margin-top: 20px;
-    padding-bottom: 20px;
-    border-bottom: 1px solid var(--green);
+    margin-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--green);
     align-content: space-around;
 
 }
@@ -65,19 +65,35 @@ li h3:hover {
     justify-content: center;
 }
 
-
-.main {
-    display:flex;
-    justify-content: center;
-    padding: 20px
+.second {
+    display: block;
+    padding: 40px;
 }
 
 .search-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.third {
+    display:flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.search-results {
     float: left;
 }
 
 .my-saved {
     float: right;
+    max-width: 40%;
+}
 
-
+footer {
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+    border-top: 2px solid var(--green);
 }
