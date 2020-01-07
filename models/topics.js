@@ -8,6 +8,7 @@ const topicSchema = new mongoose.Schema({
     source: String,
     title: String,
     rating: String,
+    notes: String,
     userId: String
 })
 
