@@ -108,6 +108,21 @@ app.controller('MainController', ["$http", function($http){
             console.log(error);
         })
 
+// Add presonal notes to saved searches
+
+    this.editSaved = function(claim){
+        $http({
+            method:'PUT',
+            url:'/topics/' + claim._id,
+            data: {
+                notes: this.updatedNotes,
+            }
+        }).then(function(response){
+            console.log(response);
+            controller.getTopics();
+            controller.indexOfUpdateTopic = null;
+        })
+    }
 
     }
 // This section handles the show saved searches page
@@ -121,10 +136,18 @@ app.controller('MainController', ["$http", function($http){
             method: 'GET',
             url: '/topics'
         }).then(function(response){
+            console.log(response.data);
             controller.topics = response.data;
         })
     }
-
+    this.deleteTopic = function(topic){
+        $http({
+            method: 'DELETE',
+            url:'/topics/' + topic._id
+        }).then(function(response){
+            controller.getTopics();
+        })
+    }
 
 // Call getTopics() on load
     this.getTopics();

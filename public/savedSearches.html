@@ -5,5 +5,11 @@
         By Who: {{topic.claimant}} <br>
         From Where: <a ng-href="{{topic.source}}">{{topic.title}}</a> <br>
         Was It True: {{topic.rating}} <br>
+        Notes: {{topic.notes}}
+        <form ng-submit="ctrl.editSaved(topic)">
+            <input type="text" ng-model="ctrl.updatedNotes" placeholder="Add Notes">
+            <input type="submit" name="" value="Update Notes">
+        </form>
+        <button ng-click="ctrl.deleteTopic(topic)">Delete Saved Search</button>
     </li>
 </ul>
