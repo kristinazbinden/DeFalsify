@@ -15,7 +15,6 @@ App was created using AngularJS, Express, Node.js, MongoDB and Bootstrap
 ## To Meet MVP
 * The project files will be hosted on Github
 * It will be deployed online using Heroku
-* ~~I will be teaching myself Python and either Flask or Django, depending on the needs of the app~~
 * I will be integrating a third party API (Google Fact Check)
 
 ![alt text](./wireframe.png)
