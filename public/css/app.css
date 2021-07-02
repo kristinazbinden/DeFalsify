@@ -95,7 +95,7 @@ input, button {
 .my-saved {
     float: right;
     max-width: 40%;
-    justify-content: flex-start;
+
 }
 
 footer {
@@ -104,4 +104,5 @@ footer {
     padding-top: 20px;
     padding-bottom: 10px;
     border-top: 2px solid var(--green);
+
 }

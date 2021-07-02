@@ -1,4 +1,5 @@
 
+<div class="search-card">
     <h3>Saved Searches</h3>
     <ul ng-repeat = "topic in ctrl.topics" ng-if="topic.userId === ctrl.loggedInUser._id" class="">
         <li>
@@ -8,9 +9,11 @@
             Was It True: {{topic.rating}} <br>
             Notes: {{topic.notes}}
             <form ng-submit="ctrl.editSaved(topic)">
-                <input type="text" ng-model="ctrl.updatedNotes" placeholder="Add Notes">
+                <input type="text" ng-model="ctrl.updatedNotes"  placeholder="Add Notes">
                 <input type="submit" name="" value="Update Notes">
             </form>
             <button ng-click="ctrl.deleteTopic(topic)">Delete Saved Search</button>
         </li>
     </ul>
+
+</div>
