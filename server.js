@@ -11,7 +11,6 @@ const db = mongoose.connection;
 const dotenv = require("dotenv");
 const cors = require('cors');
 
-
 dotenv.config();
 
 /**
@@ -68,6 +67,19 @@ app.use('/users', usersController)
 
 const sessionController = require('./controllers/session.js')
 app.use('/session', sessionController)
+
+/**
+ * Create MemoryStore constructor
+ */
+const MemoryStore = require('memorystore')(session);
+app.use(session({
+    cookie: { maxAge: 86400000 },
+    store: new MemoryStore({
+        checkPeriod: 86400000 // prune expired entries every 24h
+    }),
+    resave: false,
+    secret: 'feedmeseymour'
+}))
 
 /**
  * Routes Definitions
