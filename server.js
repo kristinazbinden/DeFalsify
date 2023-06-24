@@ -11,7 +11,6 @@ const db = mongoose.connection;
 const dotenv = require("dotenv").config();
 const cors = require('cors');
 
-dotenv.config();
 
 /**
  * App Variables
