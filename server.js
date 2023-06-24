@@ -8,7 +8,7 @@ const session = require('express-session');
 const morgan = require('morgan');
 const googleTrends = require('google-trends-api');
 const db = mongoose.connection;
-const dotenv = require("dotenv");
+const dotenv = require("dotenv").config();
 const cors = require('cors');
 
 dotenv.config();
@@ -31,7 +31,7 @@ app.use(session({
 /**
  *  Database
  */
-const DATABASE_URL = process.env.DATABASE_URL
+const DATABASE_URL = process.env.DATABASE_URL;
 
 mongoose.connect(DATABASE_URL, {
     useNewUrlParser: true,
