@@ -1,8 +1,6 @@
 # DeFalsify
 My final project for the General Assembly Software Engineering Immersive Bootcamp Course
 
-Site is live at herokuapp.com: https://defalsify.herokuapp.com/
-
 ## User Stories
  * User will be able to view trending discussion topics/fact claims and their truth score
  * User will be able to save the topics they find most interesting to a list
